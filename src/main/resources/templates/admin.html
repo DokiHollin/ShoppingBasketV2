@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--Add the xmlns whatever which so IntelliJ can help you out-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+  <link rel="stylesheet" th:href="@{general.css}" />
+</head>
+<body>
+<!--<h1>Welcome, <span th:text="${name}">Name</span>!</h1>-->
+<h1>
+   Admin's ShoppingCart
+</h1>
+<h2>
+
+  The current users are:
+
+</h2>
+
+<form action="#" th:action="@{/adminDelete}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>User</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="each : ${users}">
+            <td th:text="${each}"></td>
+            <td>
+                <label>
+                    <input type="checkbox" name="names" th:value="${each}" checked/>
+                </label>
+<!--                <label for="name"></label>-->
+<!--                <input type="hidden" id="name" name = "userName"  th:value="${customer.getName()}" />-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">update users</button>
+</form>
+
+<!--<form action="#" th:action="@{/updateCart}"  method="post">-->
+<!--  <table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>Item</th>-->
+<!--      <th>Count</th>-->
+<!--      <th>Update</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="item, index : ${customer.getBasket().items}">-->
+<!--      <td th:text="${item.key}"></td>-->
+
+<!--      <td th:text="${item.value}"></td>-->
+<!--      <td>-->
+<!--        <label for="value"></label>-->
+<!--        <input type="text" id="value" name = "emptyList"  th:value="${item.value}" />-->
+<!--      </td>-->
+<!--      <td>-->
+<!--        <label for="name"></label>-->
+<!--        <input type="hidden" id="name" name = "customerName"  th:value="${customer.getName()}" />-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--  <button type="submit">Update Cart</button>-->
+<!--</form>-->
+
+<!--<style>-->
+<!--    .link-button {-->
+<!--        background: none;-->
+<!--        border: none;-->
+<!--        color: blue;-->
+<!--        text-decoration: underline;-->
+<!--        cursor: pointer;-->
+<!--        font-size: 18px;-->
+<!--    }-->
+<!--</style>-->
+
+<!--<br><br><br><br>-->
+<!--&lt;!&ndash;<a th:href="@{/newname(name=${customer.getName()}, session=${token})}">Add New</a>&ndash;&gt;-->
+<br><br><br><br>
+<a href="adminAddNew">Add new user</a>
+
+
+<!--<br><br><br><br>-->
+<!--&lt;!&ndash;<a th:href="@{/delname(name=${customer.getName()}, session=${token})}">Delete Items</a>&ndash;&gt;-->
+
+<!--<form action="/delname" method="post">-->
+<!--  <input type="hidden" name="name" th:value="${customer.getName()}">-->
+<!--  <input type="hidden" name="session" th:value="${token}">-->
+<!--  <button type="submit" class="link-button">Delete Items</button>-->
+<!--</form>-->
+
+<!--<br><br><br><br>-->
+<!--&lt;!&ndash;<a th:href="@{/updatename (name=${customer.getName()}, session=${token})}">Update Name</a>&ndash;&gt;-->
+
+<!--<form action="/updatename" method="post">-->
+<!--  <input type="hidden" name="name" th:value="${customer.getName()}">-->
+<!--  <input type="hidden" name="session" th:value="${token}">-->
+<!--  <button type="submit" class="link-button">Update Name</button>-->
+<!--</form>-->
+
+
+<!--<br><br><br><br>-->
+<a th:href="@{/logout(token=${token})}">LogOut</a>
+
+<!--<a th:href="@{/logout(token=${token})}">LogOut</a>-->
+
+</body>
+</html>
